@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class = 'now'></h1>
+    <script>
+        const clockContent = document.querySelector('.now')
+        const getTime = () => {
+            const date = new Date()
+            let hour = date.getHours()
+            let min = date.getMinutes()
+            let sec = date.getSeconds()
+            hour < 10 ? hour = '0'+hour : hour = hour
+            min < 10 ? min = '0'+min : min = min
+            sec < 10 ? sec = '0'+sec : sec = sec
+            let now = hour + ':' + min + ':' + sec
+            clockContent.textContent = now
+        }
+        const initTime = () => {
+            getTime()
+            setInterval(getTime, 1000)
+        }
+    initTime()
+    </script>  
+</body>
+</html>
